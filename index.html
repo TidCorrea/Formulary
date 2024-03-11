@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Formulary</title>
+</head>
+<body>
+    <header>
+        <h1>Formulário</h1>
+    </header>
+    <main>
+        <form id="myForm">
+            <h3>Expedição</h3>
+            <!-- Nome -->
+            <fieldset class="form_field">
+                <div class="row">
+                    <!-- Nome -->
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label required_field" for="firstName" madatory>Nome</label>
+                            <input type="text" class="form-control" id="firstName" autocomplete="given-name" required>
+                        </div>
+                    </div>
+                    <!-- Sobrenome -->
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label required_field" for="lastName">Sobrenome</label>
+                            <input type="text" class="form-control" id="lastName" required>
+                        </div>
+                    </div>
+                </div>
+                <!-- Endereço -->
+                <div class="form-group">
+                    <label class="form-control-label required_field" for="address1">Endereço</label>
+                    <input type="text" class="form-control" id="address1" required>
+                </div>
+                <!-- País e Estado drop downs -->
+                <div class="row">
+                    <!-- País  -->
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label required_field" for="country">País</label>
+                            <select class="form-control" id="country" required autocomplete="country" onchange="changeStates()">
+                                <options>
+                                    <option></option>
+                                    <option optionid="BR" label="Brasil" value="BR"/>
+                                    <option optionid="US" label="Estados Unidos" value="US"/>
+                                </options>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Estado  -->
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label required_field" for="state">Estado</label>
+                            <select class="form-control" id="state" required>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- CEP e Telefone -->
+                <div class="row">
+                    <!-- CEP -->
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label required_field" for="postalCode">CEP</label>
+                            <input type="" class="form-control" id="postalCode" required placeholder="00000-000">
+                        </div>
+                    </div>
+                    <!-- Telefone -->
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label required_field" for="phone">Telefone</label>
+                            <input type="phone" class="form-control" id="phone" required placeholder="(00) 00000-0000" autocomplete="phone">
+                        </div>
+                    </div>
+                </div>
+                <!-- Comentário -->
+                <div class="form-group">
+                    <label class="form-control-label" for="comment">Comentário</label>
+                    <textarea class="form-control text_area" id="comment" rows="5" cols="33"></textarea>
+                    <div><p>Você tem  <span id="counter">150</span> caracteres sobrando de <span id="maximum">150</span></p></div>
+                    <div class="invalid-feedback"></div>
+                </div>
+            </fieldset>
+            <h3>Pagamento</h3>
+            <!-- Cartão -->
+            <fieldset class="form_field">
+                <div class="form-group">
+                    <label class="form-control-label required_field" for="creditcard">Número do cartão</label>
+                    <input type="text" class="form-control" id="creditcard" required>
+                </div>
+                <!-- Expiration Date -->
+                <div class="row">
+                    <!-- Expiration Month -->
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label required_field" for="month">Mês</label>
+                            <select class="form-control" id="month" required>
+                                <options>
+                                    <option label=""></option>
+                                    <option label="01"></option>
+                                    <option label="02"></option>
+                                    <option label="03"></option>
+                                    <option label="04"></option>
+                                    <option label="05"></option>
+                                    <option label="06"></option>
+                                    <option label="07"></option>
+                                    <option label="08"></option>
+                                    <option label="09"></option>
+                                    <option label="10"></option>
+                                    <option label="11"></option>
+                                    <option label="12"></option>
+                                </options>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Expiration Year -->
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label required_field" for="expirationyear">Ano</label>
+                            <select class="form-control" id="expirationyear" required>
+                                <options>
+                                    <option label=""></option>
+                                    <option label="2024"></option>
+                                    <option label="2025"></option>
+                                    <option label="2026"></option>
+                                    <option label="2027"></option>
+                                    <option label="2028"></option>
+                                    <option label="2029"></option>
+                                    <option label="2030"></option>
+                                    <option label="2031"></option>
+                                    <option label="2032"></option>
+                                    <option label="2033"></option>
+                                    <option label="2034"></option>
+                                    <option label="2035"></option>
+                                </options>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- Código de Segurança e Email -->
+                <div class="row">
+                    <!-- Código de segurança -->
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label simbol_line" for="securityCode" madatory>Código de segurança<p class="simbol">i</p></label>
+                            <input type="string" class="form-control" id="securityCode" required>
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label simbol_line" for="email" >Email<p class="simbol">i</p></label>
+                            <input type="email" class="form-control" id="email" required autocomplete="email">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group checkbox_form">
+                    <input type="checkbox" class="" id="saveCard">
+                    <label class="form-control-label" for="saveCard">salvar cartão</label>
+                </div>
+                <!-- Save Button -->
+                <div class="row buttons">
+                    <div class="col-11">
+                        <button id="saveBtn" type="submit" name="save" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="./script.js"></script>
+</body>
+</html>
